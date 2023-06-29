@@ -39,22 +39,22 @@ def play():
    global board
    global unavailable
    for i in range(n):
-			# loop will run 4 times (in our case)
-			# initiall place queen at [0][0], if doesn't work then [0][1] then [0][2] then [0][3]
+      # loop will run 4 times (in our case)
+      # initiall place queen at [0][0], if it doesn't work then [0][1] then [0][2] then [0][3]
       board[0][i] = 1
       markUnavailable(0,i)
       for j in range(n-1):
-				# Loop will run 3 times to place the remaining 3 queen's
-				# placeQueen will alawys return True for 2nd and 3rd queen, but for
-				# 3rd it can be True or False, indicating if it was placed successfully or not
+        # Loop will run 3 times to place the remaining 3 queens
+	# placeQueen will always return True for 2nd and 3rd queen, but for
+	# 3rd it can be True or False, indicating if it was placed successfully or not
         final = placeQueen();
       if(final):
-				# final will store True or False for the last queen, if True then we have found 
-				# the solution and so we come out of the function
+        # final will store True or False for the last queen, if True then we have found 
+        # the solution and so we come out of the function
         return
       else:
-				# final is False mean's that 4th queen was not placed, so we clear the 
-				# board and unavailable and start over again
+	# final is False means that the 4th queen was not placed, so we clear the 
+	# board and unavailable and start over again
         board = [[0] * n for _ in range(n)]
         unavailable = []
 
